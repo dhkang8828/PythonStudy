@@ -54,5 +54,68 @@
     "11" > "2" ## False
     int("11") > int("2") ## True
 '''
+## 문자열 변수
+str_var = "This is my python code"
+multi_line = """ I'm a developer.
+I use python.
+Thank you! """
+print(str_var)
+print(multi_line)
 
+## 문자열 연산
+integer_num1 = 12
+integer_num2 = 34
+str_num1 = "12"
+str_num2 = "34"
+print(integer_num1 + integer_num2)  # 46
+print(str_num1 + str_num2)  # 1234
+print(f"str_num1 * 3: {str_num1 * 3}")  # str_num1 * 3: 121212
 
+## 인덱싱
+str_var = "This is my python code."
+print(f"str_var[11]: {str_var[11]}")  
+print(f"str_var[-1]: {str_var[-1]}")  # 마지막 
+print(f"str_var[-5]: {str_var[-5]}")  # 뒤에서 5번째
+
+## slicing
+print(f"str_var[11:17]: {str_var[11:17]}")  # python 17을 넣어야 16번째 글자까지 가져온다
+print(f"str_var[11:-6]: {str_var[11:-6]}")  # 11번째부터 뒤에서 -6번째까지
+print(f"str_var[:11]: {str_var[:10]}")  
+
+## Method
+print(f"str_var.isalpha(): {str_var.isalpha()}")  # False, 공백이 있어서
+str_var = "Thisismypythoncode"
+print(f"str_var.isalpha(): {str_var.isalpha()}")  # True,
+
+num_var = "12"
+print(f"num_var.isdecimal(): {num_var.isdecimal()}")  # True
+num_var = "12.34"
+print(f"num_var.isdecimal(): {num_var.isdecimal()}")  # False
+
+str_var = "This is my python code."
+print(f"str_var.upper(): {str_var.upper()}")  # 대문자로 변환
+print(f"str_var.lower(): {str_var.lower()}")  # 소문자로 변
+print(f"str_var.swapcase(): {str_var.swapcase()}")  # 대소문자 바꿈
+print(f"str_var.replace('python', 'c++): {str_var.replace('python', 'c++')}")  # python을 c++로 바꿈
+print(f"str_var.split(' '): {str_var.split(' ')}")  #
+
+## Format String
+weahter = "cloudy"
+temp = 30.9
+# 1) C-style formatting
+str = "[%s / %.1f] Today's weather is %s and temperature is %.1f degrees." % (weahter, temp, weahter, temp)
+print(f"1) C-style formatting: {str}")
+# 2) str.format() method
+str = "Today's weather is {} and temperature is {} degrees.".format(weahter, temp)
+print(f"2-1) str.format() method: {str}")
+str = "[{0} / {1}]Today's temperature is {1} degrees and weather is {0}.".format(weahter, temp)
+print(f"2-2) str.format() method: {str}")
+# 3) f-string (Python 3.6+)
+str = f"Today 's weather is {weahter} and temperature is {temp} degrees."
+print(f"3) f-string: {str}")
+
+## 사용자로부터 입력 받기
+num = input("Enter number: ")
+print(f"num: {num}, type: {type(num)}")  # 입력은 항상 문자열로 받는다
+num = int(num) + 1
+print(f"num: {num}, type: {type(num)}")  # 정수로 변환
