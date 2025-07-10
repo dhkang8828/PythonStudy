@@ -45,6 +45,6 @@ class Programmer(Person):
         self.language = language
     
     def introduce(self):
-        super().hello()
+        super()._hello()
         print(f"I'm Programmer, I can use {self.language}")
 
