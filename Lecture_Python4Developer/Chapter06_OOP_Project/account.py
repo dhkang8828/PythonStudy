@@ -9,6 +9,12 @@ class BankAccount(ABC):
         
     def get_balance(self):
         return self.__balance
+    
+    def get_hoder_name(self):
+        return self._holder_name
+    
+    def get_acount_number(self):
+        return self._account_number
        
     def deposite(self, amount):
         self.__balance += amount
@@ -41,5 +47,26 @@ class SavingAccount(BankAccount):
         self.deposite(interest)
         self.__is_locked = False
         
-    
-            
+    def info(self):
+        print(f"[예금/{self.get_acount_number()}]" +
+              f" 잔액 ${self.get_balance()}," +
+              f" 이율:{self.__interest_rate * 100}, 출금 제한:{self.__is_locked}")
+
+class CheckingAccount(BankAccount):
+    def __init__(self, holder_name, balance, withdraw_limit = 500):
+        super().__init__(holder_name, balance)
+        self.__withdraw_limit = withdraw_limit
+        
+    def update_limit(self, new_limit):
+        self.__withdraw_limit = new_limit
+        
+    def withdraw(self, amount):
+        if (self.__withdraw_limit < amount):
+            raise ValueError
+        else:
+            return super().withdraw(amount)
+        
+    def info(self):
+        print(f"[입출금/{self.get_acount_number()}]" + 
+              f" 잔액 ${self.get_balance()}," + 
+              f" 출금한도 ${self.__withdraw_limit}")
